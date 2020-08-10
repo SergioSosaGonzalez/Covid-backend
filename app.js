@@ -7,6 +7,7 @@ const app = express();
 
 //Cargar rutas
 const user = require("./routes/UserRoute");
+const qr = require("./routes/QRroutes");
 //Cargar middelwares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,11 +26,12 @@ app.use((req, res, next) => {
 });
 
 //Rutas
-app.use("/", (req, resp) => {
+app.use("/document", (req, resp) => {
   return resp
     .status(200)
     .send(fs.readFileSync("./templates/Indication_page.html", "utf8"));
 });
 app.use("/api/user", user);
+app.use("/api/qr", qr);
 //Exportar
 module.exports = app;

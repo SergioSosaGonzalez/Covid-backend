@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   area: String,
   cargo: String,
+  temperature: { number: { type: String }, lastDate: { type: Date } },
 });
 
 const User = mongoose.model("User", userSchema);

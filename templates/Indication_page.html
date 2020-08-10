@@ -17,7 +17,7 @@
   <body>
     <h1 style="text-align: center;">Información de los endpoints de la API</h1>
     <div style="margin: 0 auto; width: 70%;">
-      <h2>User</h2>
+      <h2>User Module</h2>
       <ul>
         <li>Protocol: POST</li>
         <li>Endpoint: /api/user/register-user</li>
@@ -30,19 +30,46 @@
       <ul>
         <li>Protocol: PUT</li>
         <li>Endpoint: /api/user/update-user</li>
+        <li><strong>Authorization Required: </strong>Yes</li>
         <li>
           Datos:{ firstname: String, lastname: String, email: String,
           cargo:String }
         </li>
       </ul>
       <br />
-      <h2>Login</h2>
+      <h2>Login Module</h2>
       <ul>
         <li>Protocol: POST</li>
         <li>Endpoint: /api/user/login</li>
         <li>
           Datos:{ email: String, password: String }
         </li>
+        <li>
+          <strong>Response: </strong>{token:String,user:Object,message:String}
+        </li>
+      </ul>
+      <br />
+      <h2>QR Code</h2>
+      <ul>
+        <li><h3>Generate QR Code</h3></li>
+        <li>Protocol: GET</li>
+        <li>Endpoint: /api/qr/get-qr</li>
+        <li><strong>Authorization Required: </strong>Yes</li>
+        <li>
+          Datos:{}
+        </li>
+        <li><strong>Response: </strong>{qr:String,message:String}</li>
+      </ul>
+      <br />
+      <ul>
+        <li><h3>Save temperature</h3></li>
+        <li>Protocol: POST</li>
+        <li>Endpoint: /api/qr/verify-temperature</li>
+        <li><strong>Authorization Required: </strong>Yes</li>
+        <li>
+          Datos:{info:String,temp:String}
+        </li>
+        <li><strong>Response: </strong>{message:String}</li>
       </ul>
     </div>
   </body>
